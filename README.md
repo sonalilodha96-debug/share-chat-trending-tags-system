@@ -23,45 +23,17 @@ The system prioritises:
 
 The system combines multiple public signals to identify topics rapidly gaining attention across India.
 
-### A. Hindi Google News RSS
+## Trend Sources
 
-The system ingests Hindi-first and India-specific Google News RSS feeds across categories such as:
+The system combines multiple public signals to identify topics rapidly gaining attention across India.
 
-* sports/cricket
-* Bollywood
-* politics
-* devotion/festivals
-* business
-* weather
-* technology
-* regional events
-
-### B. Indian News Publishers
-
-The system also prioritises high-volume Indian publishers popular among Tier-2/Tier-3 audiences, including:
-
-* Aaj Tak
-* ABP News
-* Zee News
-* India TV
-* TV9 Bharatvarsh
-
-These sources often capture mass-market conversations earlier than English-first outlets.
-
-### C. Google Trends (India)
-
-Google Trends is used as a high-confidence intent signal to identify what users are actively searching for, not just what publishers are covering.
-
-### D. YouTube & Creator Signals
-
-The system considers signals from Indian YouTube ecosystems including devotional, cricket, entertainment, music, and creator-led content.
-
-This was important because a large share of vernacular internet consumption in India is video-first.
-
-### E. Regional & Tier-2 Signals
-
-The system intentionally includes region-aware signals from Tier-2/Tier-3 cities such as Indore, Lucknow, Patna, Surat, Jaipur, Kanpur, and Bhopal.
-
+| Source | Coverage |
+|---|---|
+| Hindi Google News RSS | Tracks India-specific trends across sports, Bollywood, politics, devotion/festivals, business, weather, technology, and regional events |
+| Indian news publishers (Aaj Tak, ABP, Zee, India TV, TV9 Bharatvarsh) | Captures fast-moving mass-market conversations popular among Tier-2/Tier-3 audiences |
+| Google Trends (India) | Identifies active search momentum and real-world user curiosity |
+| YouTube & creator signals | Captures momentum from devotional, cricket, entertainment, music, and creator-led video ecosystems |
+| Regional & Tier-2 signals | Surfaces trends resonating across cities such as Indore, Lucknow, Patna, Surat, Jaipur, Kanpur, and Bhopal |
 
 ---
 
