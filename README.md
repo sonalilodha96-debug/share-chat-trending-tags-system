@@ -62,41 +62,31 @@ For example:
 
 ---
 
-# Trend Extraction Logic
+## Trend Extraction Logic
 
-The pipeline uses a lightweight rule-based topic extraction layer.
-
-Incoming headlines and metadata are:
-
-* tokenized
-* normalized
-* mapped against known trend entities
-* grouped into canonical tags
+The pipeline uses a lightweight rule-based extraction layer where headlines and metadata are:
+- tokenized
+- normalized
+- mapped to known trend entities
+- grouped into category-aware tags
 
 Examples:
+- “IPL”, “CSK”, “Dhoni” → Sports/Cricket
+- “Hanuman Jayanti”, “Mandir”, “Bhajan” → Devotional
 
-* “IPL”, “CSK”, “Dhoni” → Sports/Cricket cluster
-* “Hanuman Jayanti”, “Mandir”, “Bhajan” → Devotional cluster
+The system prioritises tags that are:
+- specific
+- visually recognizable
+- easy to scan quickly
 
-The system intentionally keeps tags:
+So instead of broad labels like “Politics”, the system surfaces clearer tags such as:
+- “Bihar Elections”
+- “IPL 2026”
+- “Salman Khan”
+- “Mahakal Ujjain”
 
-* specific
-* visually recognizable
-* category-aligned
-* easy to scan quickly
+This improves discoverability and click intent.
 
-Instead of broad topics like:
-
-* “Politics”
-
-the system prefers:
-
-* “Bihar Elections”
-* “IPL 2026”
-* “Salman Khan”
-* “Mahakal Ujjain”
-
-This improves click intent and feed clarity.
 
 ---
 
