@@ -134,38 +134,13 @@ Each topic receives a weighted heat score.
 
 ## Scoring Signals
 
-| Signal             | Purpose             | Weight |
-| ------------------ | ------------------- | ------ |
-| News Frequency     | Breadth of coverage | 35%    |
-| Search Momentum    | Active user intent  | 25%    |
-| Social/Video Buzz  | Viral spread        | 20%    |
-| Regional Relevance | Tier-2 resonance    | 10%    |
-| Recency Boost      | Freshness           | 10%    |
-
----
-
-## Why These Weights?
-
-### News Frequency (35%)
-
-News coverage was weighted highest because it is the broadest and most stable signal source.
-
-### Search Momentum (25%)
-
-Google Trends acts as a strong confirmation signal for real-world user curiosity.
-
-### Social & Video Buzz (20%)
-
-This captures creator-led or grassroots internet momentum before mainstream coverage fully catches up.
-
-### Regional Relevance (10%)
-
-A smaller but important boost is given to topics showing strong regional clustering because ShareChat’s audience is highly geography-sensitive.
-
-### Recency Boost (10%)
-
-Fresh spikes are prioritised over older but still high-volume topics.
-
+| Signal | Weight | Why It Matters |
+|---|---|---|
+| News Frequency | 35% | News coverage is the broadest and most stable signal source for identifying large-scale conversations across India |
+| Search Momentum | 25% | Google Trends acts as a strong confirmation signal for real-world user curiosity and active search intent |
+| Social/Video Buzz | 20% | Captures creator-led and grassroots internet momentum before mainstream coverage fully catches up |
+| Regional Relevance | 10% | Gives additional importance to topics strongly resonating across Tier-2/Tier-3 regions and language clusters |
+| Recency Boost | 10% | Prioritises fresh spikes and emerging conversations over older but still high-volume topics |
 ---
 
 # Filtering & Quality Control
@@ -242,53 +217,17 @@ The prototype intentionally uses explainable heuristics instead of heavy ML mode
 
 # 4. UX Rationale
 
-## Why Horizontal Trending Cards?
+## UX Rationale
 
-I chose horizontally scrollable visual cards instead of a dense text-only trending list.
+| Design Choice | Rationale |
+|---|---|
+| Horizontal trending cards | Better suited for high-scroll mobile usage, quick scanning behaviour, and entertainment-first browsing patterns |
+| Visual-first layout | Improves discoverability and allows users to identify trends faster through imagery and category cues |
+| Category-aware tags | Helps users navigate different intent states such as cricket, devotion, entertainment, or politics more predictably |
+| Momentum labels (⚡ Breaking, 🔥 Rising) | Communicates freshness and urgency instantly without requiring users to open the feed |
+| Limited tags per screen | Prevents cognitive overload while still surfacing multiple trend categories simultaneously |
+| Rejected dense text-only lists | A Twitter/X-style format felt too text-heavy and less engaging for vernacular-first consumption patterns |
 
-This format worked better for:
-
-* high-scroll mobile usage
-* quick scanning behaviour
-* entertainment-first browsing
-* vernacular-first consumption patterns
-
-The card format allows:
-
-* larger visual hierarchy
-* category cues
-* easier discoverability
-* better emotional immediacy
-
-It also makes multiple topics visible simultaneously without overwhelming the screen vertically.
-
----
-
-## Why Category-Aware Tags?
-
-Users often consume trends differently based on intent:
-
-* cricket during live matches
-* devotion during festivals
-* entertainment during casual browsing
-* politics during major events
-
-Adding category-awareness improves feed predictability and reduces cognitive load.
-
----
-
-## Why Momentum Labels?
-
-Labels such as:
-
-* ⚡ Breaking
-* 🔥 Rising
-
-help communicate urgency immediately without requiring the user to open the feed.
-
-This improves trend comprehension speed in low-attention browsing environments.
-
----
 
 ## What Was Considered & Rejected
 
