@@ -292,8 +292,6 @@ This improves trend comprehension speed in low-attention browsing environments.
 
 ## What Was Considered & Rejected
 
-### Rejected: Twitter/X-style text trend list
-
 A compact list format was initially explored but rejected because it felt:
 
 * too text-heavy
@@ -301,9 +299,6 @@ A compact list format was initially explored but rejected because it felt:
 * weaker for entertainment browsing
 * less suited for multilingual audiences
 
-### Rejected: Overly Personalized Feed
-
-The prototype intentionally avoids deep personalization at this stage because trend discovery should first establish broad social relevance before narrowing into individual preference loops.
 
 ---
 
