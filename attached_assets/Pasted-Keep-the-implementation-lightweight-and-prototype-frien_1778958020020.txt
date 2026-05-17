@@ -1,0 +1,120 @@
+Keep the implementation lightweight and prototype-friendly.
+Do not build authentication, databases, queues, schedulers, Docker, Kafka, or production infrastructure.
+Use in-memory processing only.
+
+Prioritize working code and explainability over sophistication.
+
+Also create a simple browser-viewable debug endpoint:
+GET /debug/trends
+
+This endpoint should render the trends in a clean HTML table for easy demo and debugging.
+
+Build a Python FastAPI backend for an APM assignment called “ShareChat Trending Tags System”.
+
+Goal:
+Create an API that identifies what is trending in India today for Hindi-speaking ShareChat users and returns a ranked list of at least 10 trending tags per invocation.
+
+Important:
+This is an MVP/prototype, not production infrastructure. Optimize for working code, clear logic, explainability, and fresh daily/current signals.
+
+API endpoint:
+GET /api/trends
+
+Response should include:
+{
+"generatedAt": "...",
+"audience": "Indian Hindi-speaking users",
+"count": 10,
+"trends": [
+{
+"rank": 1,
+"tag": "#...",
+"title": "...",
+"description": "...",
+"category": "खेल / समाचार / मनोरंजन / बिजनेस / मौसम / भक्ति / लोकल / टेक / अन्य",
+"categoryKey": "sports/news/entertainment/business/weather/devotional/local/tech/other",
+"heatScore": 0-100,
+"momentum": "🔥 Rising / ⚡ Breaking / 🟢 New",
+"sources": ["Google News", "Google Trends", "Reddit"],
+"signalBreakdown": {
+"news": 0-40,
+"search": 0-30,
+"social": 0-20,
+"recency": 0-10
+},
+"whyTrending": "...",
+"postCount": "..."
+}
+]
+}
+
+Signal sources to use:
+
+1. Google News India RSS
+- Use Hindi/India Google News RSS feeds.
+- Use category-specific feeds/searches for:
+    - cricket/sports
+    - Bollywood/OTT/entertainment
+    - politics/news
+    - stock market/RBI/business
+    - weather/rain/IMD
+    - festivals/temple/devotional
+- This captures breaking news and mainstream coverage.
+1. Google Trends proxy
+- Try to use pytrends if possible.
+- Fetch trending searches for India if available.
+- If pytrends fails due to blocking/rate limits, use a graceful fallback and clearly mark search signal as estimated.
+- This captures what people are searching for.
+1. Social/viral proxy
+- Use Reddit RSS/search feeds for India-relevant subreddits or searches, such as:
+    - india
+    - bollywood
+    - cricket
+    - IndianStreetBets
+- If Reddit fails, use a fallback list or estimate social signal from frequency/recency.
+- This captures what is going viral on other public platforms.
+
+Core logic:
+
+1. Fetch items from all sources on every API call.
+2. Extract candidate topics from titles/headlines.
+3. Clean noisy text.
+4. Convert topics into Hindi-facing hashtags.
+5. Deduplicate similar topics.
+6. Categorize each trend.
+7. Score trends using a weighted heat score:
+    - news signal: max 40
+    - search signal: max 30
+    - social signal: max 20
+    - recency signal: max 10
+8. Sort by heat score descending.
+9. Return top 10 trends.
+10. Include metadata useful for UI rendering.
+
+Important constraints:
+
+- Output should be in Hindi or Hindi-facing Hinglish.
+- Tags should be relevant to Indian, Hindi-speaking users.
+- Do not return obscure global tech stories unless clearly viral in India.
+- Return at least 10 trends. If live sources return fewer, fill using current fallback category searches, but mark sources honestly.
+- Do not cache from build time. Fresh data should be fetched when the endpoint is called.
+- Add CORS support so a Lovable frontend can call this API.
+
+Code requirements:
+
+- Use FastAPI.
+- Create requirements.txt.
+- Add clear comments explaining each stage.
+- Include robust error handling so the API still returns results if one source fails.
+- Include a root endpoint "/" that confirms the API is running.
+- Keep the code simple enough for a non-engineer PM candidate to explain in a Loom walkthrough.
+
+Also create a README section explaining:
+
+- Data sources used
+- Trend pipeline workflow
+- Scoring formula
+- Known limitations
+- What would be improved with 4 more weeks
+
+Do not build a frontend. Only build the backend/API.

@@ -1,0 +1,121 @@
+Improve final trend quality without changing the overall architecture.
+
+Current issues:
+- Some tags are too generic: #AI, #राम, #मोदी
+- Some tags lack context: #आगरा
+- Some tags are awkward/source-based: #News24Netflix, #Bharatvarsh
+- Some trends are repetitive, especially weather/local topics
+- Bharat/Hindi news signals should have higher importance than Reddit/global-tech chatter
+
+Goal:
+Make the trend output feel more like a real ShareChat/Bharat trending system for Tier-2/Tier-3 Hindi-speaking users.
+
+1. Improve source weighting and ranking logic
+
+Increase ranking preference toward Bharat/Hindi news ecosystem signals.
+
+Approximate ranking preference:
+- Bharat/Hindi news ecosystem (Google News Hindi + regional Hindi publishers + local Hindi coverage): ~50%
+- Search intent signals (Google Trends / trending searches): ~30%
+- Social/discussion/viral signals (Reddit + YouTube when available): ~20%
+
+These do not need to be implemented as strict hardcoded percentages, but the final ranking behavior should approximately reflect this priority.
+
+Reduce the relative influence of:
+- Reddit/global internet chatter
+- generic global tech topics
+- weak English-only viral keywords
+
+Prioritize trends relevant to:
+- cricket
+- Bollywood / TV / OTT
+- devotional/festival content
+- local weather
+- government schemes
+- exams/jobs
+- viral videos
+- regional entertainment
+- local city/state events
+
+2. Improve hashtag quality
+
+Avoid weak generic tags unless strong context exists.
+
+Examples:
+- #AI → #AIवीडियो / #AIJobs / #AIUpdate
+- #राम → #रामनवमी / #राममंदिर
+- #मोदी → #मोदीसरकार / #मोदीयोजना
+- #आगरा → #आगरामौसम / #आगरान्यूज
+
+Tags should feel like something a Bharat user would actually tap.
+
+3. Improve tag generation logic
+
+Add stronger context-aware hashtag generation.
+
+A trend tag should include:
+- topic + event
+OR
+- city + issue
+OR
+- person + event
+OR
+- movie/show + release/update
+OR
+- festival + occasion
+OR
+- match/team + context
+
+Create/refine a helper function like:
+generate_better_hashtag(headline, base_topic, category)
+
+This function should:
+- remove publisher/source names
+- remove duplicate adjacent words
+- extract cities, festivals, matches, celebrities, movies, policies, weather events, exams, jobs, viral phrases
+- combine entity + trend context into a more natural hashtag
+- fallback to base topic only if no meaningful context exists
+
+4. Remove publisher/source pollution from tags
+
+Do NOT create tags using:
+- News24
+- Bharatvarsh
+- AajTak
+- Zee
+- Jagran
+- Bhaskar
+- duplicated words like NetflixNetflix
+
+5. Deduplicate repetitive trends
+
+If multiple trends refer to the same topic:
+- merge them
+- combine signals
+- keep the strongest version
+
+If multiple weather/local trends exist:
+- keep only the strongest 1–2 unless they represent different cities/events
+
+6. Keep unchanged
+
+Do NOT change:
+- API schema
+- endpoints
+- frontend table
+- source pipeline
+- overall scoring output format
+
+7. Final cleanup/refactor
+
+After improvements:
+- remove unused code/imports
+- group source-fetching functions together
+- group scoring functions together
+- group hashtag-generation functions together
+- add short comments explaining each pipeline stage
+- confirm that:
+  - /
+  - /api/trends
+  - /debug/trends
+still work correctly

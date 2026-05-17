@@ -1,0 +1,105 @@
+Combine them into ONE prompt. Don’t send two sequential prompts now because Replit may partially apply one and forget the other.
+
+Use this merged version:
+
+```text
+The current tags are still too generic and not Bharat/Tier-2 enough for a ShareChat trending tags system.
+
+Problems:
+- Tags like #AI, #IMDअलर्ट, #DhurandharOTT still feel keyword-based and machine-generated.
+- The trends still feel too newsroom/global-tech oriented instead of ShareChat/Bharat-native.
+
+Improve the trend generation system with these requirements:
+
+1. Generate more human-readable and event-specific hashtags.
+2. Prefer tags that feel like real ShareChat trending topics users would tap.
+3. Use headline context to generate the tag.
+4. Prefer 2-4 word topic phrases compressed into hashtags.
+5. Avoid generic single-word tags unless no better phrase exists.
+
+Examples:
+Instead of:
+- #AI
+- #IMDअलर्ट
+- #OTT
+
+Prefer:
+- #AIवीडियो
+- #AIDeepfake
+- #दिल्लीबारिश
+- #मुंबईबारिश
+- #CycloneUpdate
+- #OTTRelease
+- #Dhurandhar2
+- #IPLमीम्स
+
+Add a helper function:
+generate_better_hashtag(headline, base_topic, category)
+
+This function should:
+- remove publisher/source names
+- extract cities, festivals, matches, celebrities, movies, policies, weather events, exams, jobs, viral phrases
+- combine entity + trend context into a more natural hashtag
+- fallback to the base topic only if no meaningful context exists
+
+Also make the system more Bharat / Tier-2 / Hindi-speaking audience centric.
+
+Boost trends related to:
+- cricket
+- Bollywood / TV / OTT
+- devotional content
+- festivals / vrat / puja
+- local weather
+- government schemes
+- exams / jobs
+- viral videos
+- comedy / memes
+- Bhojpuri / regional entertainment
+- local city/state events
+
+Add more Tier-2 / Hindi belt relevance:
+- Patna
+- Lucknow
+- Kanpur
+- Jaipur
+- Indore
+- Bhopal
+- Varanasi
+- Prayagraj
+- Ranchi
+- Raipur
+- Meerut
+- Agra
+- Gorakhpur
+
+Down-rank obscure global tech/business stories unless clearly viral in India.
+
+Examples of strong Bharat-centric tags:
+- #पटनाबारिश
+- #लखनऊमौसम
+- #छठपूजा
+- #सरकारीनौकरी
+- #UPBoardResult
+- #IPLमीम्स
+- #भोजपुरीगाना
+- #राममंदिर
+- #वायरलवीडियो
+- #सावनसोमवार
+
+Keep unchanged:
+- API schema
+- endpoints
+- scoring system
+- UI
+- trend table
+- source pipeline
+
+Only improve:
+- topic extraction
+- hashtag generation
+- deduplication
+- Bharat/Tier-2 prioritization
+- ranking relevance
+```
+
+Confidence: 99%
