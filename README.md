@@ -309,47 +309,10 @@ The prototype intentionally avoids deep personalization at this stage because tr
 
 # 5. What I’d Build With 4 More Weeks
 
-
-## Personalized Trend Ranking
-
-Blend platform-wide trends with user interests, language preferences, and engagement history.
-
----
-
-## Geo-Specific Trend Clusters
-
-Surface different trend sets based on:
-
-* state
-* city
-* language region
-  
----
-
-## NLP-Based Topic Extraction
-
-Replace static keyword mapping with:
-
-* Named Entity Recognition
-* semantic clustering
-* Hindi language understanding
-
-This would improve detection of emerging entities and novel trends.
-
----
-
-
-## Creator & Engagement Signals
-
-Integrate:
-
-* share counts
-* watch time
-* creator engagement
-* comment momentum
-
-to better capture actual platform behaviour.
-
----
-
+| Priority | Improvement | Why |
+|---|---|---|
+| High | Geo-specific trend clusters | Surface different trends by state, city, and language region to better reflect hyperlocal Bharat consumption patterns |
+| High | Creator & engagement signals | Incorporate shares, watch time, comment momentum, and creator engagement to better capture what is genuinely spreading on the platform |
+| Medium | NLP-based topic extraction | Replace static keyword matching with smarter entity detection and Hindi language understanding to identify newer and emerging topics |
+| Medium | Personalized trending tags | Adapt trending tags based on user behavior, language preferences, and engagement patterns instead of showing the same trends to every user |
 
