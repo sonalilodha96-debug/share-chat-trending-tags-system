@@ -2,19 +2,18 @@
 
 ## Overview
 
-This prototype is a lightweight trend-intelligence system designed for a Bharat-first social content platform like [ShareChat](https://sharechat.com?utm_source=chatgpt.com).
+This prototype is a lightweight trend-intelligence system designed for a Bharat-first social platform like [ShareChat](https://sharechat.com?utm_source=chatgpt.com).
 
-The goal was to create a trend discovery experience that surfaces culturally relevant, high-momentum topics for Indian users across entertainment, sports, politics, devotion, festivals, regional news, and creator-driven internet culture.
+It surfaces culturally relevant, high-momentum topics across entertainment, sports, politics, devotion, festivals, regional news, and creator culture by aggregating multiple public signals into a weighted ranking pipeline.
 
-Instead of relying on a single trending source, the system aggregates multiple public signals, scores them using a weighted ranking pipeline, and converts them into structured, category-aware trending tags optimized for a high-scroll mobile environment.
-
-The prototype prioritises:
+The system prioritises:
 
 * fast discovery
 * vernacular relevance
 * trend freshness
-* explainable ranking logic
+* explainable ranking
 * low-friction content exploration
+
 
 ---
 
@@ -26,25 +25,20 @@ The system combines multiple public signals to identify topics rapidly gaining a
 
 ### A. Hindi Google News RSS
 
-The system ingests Hindi-first and India-specific RSS feeds from Google News.
+The system ingests Hindi-first and India-specific Google News RSS feeds across categories such as:
 
-Examples include:
-
-* national news
 * sports/cricket
 * Bollywood
 * politics
-* devotional/festival coverage
+* devotion/festivals
 * business
 * weather
 * technology
 * regional events
 
-### B. Specific News Publishers
+### B. Indian News Publishers
 
-To reduce dependency on generic aggregation alone, the system also prioritises signals from high-volume Indian publishers frequently consumed by Tier-2/Tier-3 audiences.
-
-Examples:
+The system also prioritises high-volume Indian publishers popular among Tier-2/Tier-3 audiences, including:
 
 * Aaj Tak
 * ABP News
@@ -52,48 +46,22 @@ Examples:
 * India TV
 * TV9 Bharatvarsh
 
-These sources tend to reflect fast-moving mass-market conversations earlier than traditional English-first outlets.
+These sources often capture mass-market conversations earlier than English-first outlets.
 
 ### C. Google Trends (India)
 
-Google Trends is used as a high-confidence intent signal.
+Google Trends is used as a high-confidence intent signal to identify what users are actively searching for, not just what publishers are covering.
 
-This helps identify:
+### D. YouTube & Creator Signals
 
-* what users are actively searching for
-* not just what publishers are covering
+The system considers signals from Indian YouTube ecosystems including devotional, cricket, entertainment, music, and creator-led content.
 
-Search spikes are treated as strong evidence of emerging momentum.
-
-### D. YouTube Trending & Creator Signals
-
-The system also considers metadata patterns from high-engagement Indian YouTube ecosystems including:
-
-* devotional channels
-* cricket channels
-* entertainment commentary
-* movie/music releases
-* meme and creator culture
-
-This was important because a large percentage of vernacular internet consumption in India is video-first rather than text-first.
+This was important because a large share of vernacular internet consumption in India is video-first.
 
 ### E. Regional & Tier-2 Signals
 
-The system intentionally includes city and region-aware signals from Tier-2 and Tier-3 geographies.
+The system intentionally includes region-aware signals from Tier-2/Tier-3 cities such as Indore, Lucknow, Patna, Surat, Jaipur, Kanpur, and Bhopal.
 
-Examples:
-
-* Indore
-* Lucknow
-* Patna
-* Surat
-* Jaipur
-* Kanpur
-* Bhopal
-
-The rationale behind this is that platforms like ShareChat are heavily driven by hyperlocal identity and regional cultural relevance rather than purely metro-centric internet trends.
-
-A topic heavily discussed in a regional cluster may matter more to ShareChat users than a globally trending topic with weak local resonance.
 
 ---
 
